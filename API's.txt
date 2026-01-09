@@ -1,0 +1,199 @@
+🔹Step 2: Install Postman
+
+Go to 👉 https://www.postman.com/downloads/
+
+Download for Windows / Mac / Linux
+
+Install and open
+
+Sign in (optional but recommended)
+
+🔹 Step 3: Postman Interface Overview
+
+Key components:
+
+Workspace – your working area
+
+Collections – group of API requests
+
+Request Tab – build and send requests
+
+Response Section – see API output
+
+Environment – store variables
+
+🔹 Step 4: Create Your First GET Request
+Example API:
+https://jsonplaceholder.typicode.com/posts
+
+Steps:
+
+Click New → HTTP Request
+
+Select method → GET
+
+Paste URL
+
+Click Send
+
+✅ Response:
+
+Status: 200 OK
+
+JSON data displayed
+
+🔹 Step 5: Understanding HTTP Methods
+Method	Purpose
+GET	Fetch data
+POST	Create new data
+PUT	Update full data
+PATCH	Update partial data
+DELETE	Remove data
+🔹 Step 6: POST Request (Create Data)
+URL:
+https://jsonplaceholder.typicode.com/posts
+
+Steps:
+
+Select POST
+
+Go to Body → raw → JSON
+
+Add JSON:
+
+{
+  "title": "Postman Tutorial",
+  "body": "Learning API testing",
+  "userId": 1
+}
+
+
+Click Send
+
+✅ Status: 201 Created
+
+🔹 Step 7: Using Headers
+
+Used for authentication & content type.
+
+Example:
+
+Key: Content-Type
+Value: application/json
+
+
+Common headers:
+
+Authorization
+
+Content-Type
+
+Accept
+
+🔹 Step 8: Query Parameters
+
+URL example:
+
+/posts?userId=1
+
+
+In Postman:
+
+Go to Params
+
+Add:
+
+Key: userId
+
+Value: 1
+
+🔹 Step 9: Collections (VERY IMPORTANT)
+
+Click New → Collection
+
+Name it: Postman API Practice
+
+Save requests inside it
+
+👉 Helps in organization & automation
+
+🔹 Step 10: Environment Variables
+
+Used to avoid hardcoding values.
+
+Example:
+
+Variable: base_url
+
+Value: https://jsonplaceholder.typicode.com
+
+Use in request:
+
+{{base_url}}/posts
+
+🔹 Step 11: Tests Tab (Automation Basics)
+
+Go to Tests tab and write JavaScript.
+
+Example test:
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+
+Other validations:
+
+Response time
+
+JSON values
+
+Headers
+
+🔹 Step 12: Pre-request Script
+
+Used to:
+
+Generate tokens
+
+Set dynamic variables
+
+Example:
+
+pm.environment.set("token", "abc123");
+
+🔹 Step 13: Authorization
+
+Postman supports:
+
+Bearer Token
+
+API Key
+
+OAuth 2.0
+
+Basic Auth
+
+Example:
+Authorization → Bearer Token
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6...
+
+🔹 Step 14: Run Collection (Automation)
+
+Click Collection
+
+Click Run
+
+Execute all APIs at once
+
+View pass/fail results
+
+🔹 Step 15: Newman (CLI Execution)
+
+Run Postman collections from command line:
+
+npm install -g newman
+newman run collection.json
+
+
+Used in CI/CD pipelines
